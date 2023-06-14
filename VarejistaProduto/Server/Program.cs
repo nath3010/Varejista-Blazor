@@ -2,6 +2,8 @@ global using VarejistaProduto.Shared;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using VarejistaProduto.Server.Data;
+using VarejistaProduto.Server.Repository;
+using VarejistaProduto.Server.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();   
 
 var app = builder.Build();
 
