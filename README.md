@@ -1,1 +1,1 @@
-# VarejistaProduto
+Projeto Varejista Blazor
