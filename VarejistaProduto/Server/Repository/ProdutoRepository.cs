@@ -1,5 +1,6 @@
 ﻿using VarejistaProduto.Server.Data;
 using VarejistaProduto.Server.Repository.IRepository;
+using VarejistaProduto.Shared.Model;
 
 namespace VarejistaProduto.Server.Repository
 {

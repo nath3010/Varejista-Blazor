@@ -6,11 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VarejistaProduto.Shared.Dto
+namespace VarejistaProduto.Shared.Model
 {
-    public class ProdutoDto
+    public class Produto
     {
-        [Required]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public int Quantidade { get; set; }

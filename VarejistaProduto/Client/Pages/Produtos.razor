@@ -1,0 +1,54 @@
+﻿@page "/"
+@using VarejistaProduto.Shared
+@inject HttpClient Http
+
+<PageTitle>Produtos</PageTitle>
+
+
+
+@if (produtos == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="container-md">
+        <h2>Produtos</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Quantidade</th>
+                    <th>Preço Venda</th>
+                    <th>Data Cadastro</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var produto in produtos)
+                {
+                    <tr>
+                        <td>@produto.Nome</td>
+                        <td>@produto.Descricao</td>
+                        <td>@produto.Tipo</td>
+                        <td>@produto.Quantidade</td>
+                        <td>R$ @produto.PrecoVenda</td>
+                        <td>@produto.DataCadastro.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+}
+
+@code {
+
+    private static List<Produto> produtos = new List<Produto>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        produtos = await Http.GetFromJsonAsync<List<Produto>>("api/Produto");
+    }
+}

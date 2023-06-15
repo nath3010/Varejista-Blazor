@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VarejistaProduto.Server.Repository.IRepository;
+using VarejistaProduto.Shared.Model;
 
 namespace VarejistaProduto.Server.Controllers
 {
